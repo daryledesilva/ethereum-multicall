@@ -352,6 +352,8 @@ export class Multicall {
       this.getContractBasedOnNetwork(networkId)
     );
 
+    contract.defaultBlock = this._options["defaultBlock"] || 'latest'
+
     if (this._options.tryAggregate) {
       const contractResponse = (await contract.methods
         .tryBlockAndAggregate(
